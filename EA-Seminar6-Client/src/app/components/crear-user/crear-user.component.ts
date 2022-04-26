@@ -28,6 +28,7 @@ export class CrearUserComponent implements OnInit {
       name: ['', Validators.required],
       age: ['', Validators.required],
       password: ['', Validators.required],
+      creationDate: ['', Validators.required],
     });
     
     this.name = this.aRouter.snapshot.paramMap.get('name');
@@ -44,6 +45,7 @@ export class CrearUserComponent implements OnInit {
       name: this.userForm.get('name')?.value,
       age: this.userForm.get('age')?.value,
       password: this.userForm.get('password')?.value,
+      creationDate: this.userForm.get('creationDate')?.value,
     }
 
     if(this.name !== null){
@@ -78,6 +80,7 @@ export class CrearUserComponent implements OnInit {
           name: data.name,
           age: data.age,
           password: data.password,
+          creationDate: data.creationDate,
         })
       })
     }

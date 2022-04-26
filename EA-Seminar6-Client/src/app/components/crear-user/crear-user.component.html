@@ -38,6 +38,14 @@
                              </div>
                         </div>
                         <div class="mb-3">
+                            <input type="text" formControlName="creationDate"
+                                class="form-control form-control-lg" placeholder="CreationDate">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('password')?.hasError('required') && userForm.get('CreationDate')?.touched">
+                                <span>La fecha es obligatori</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
                             <button routerLink="/" class="btn btn-secondary btn-lg float-start">TORNAR</button>
                             <button type="submit" [disabled]="userForm.invalid" class="btn btn-success btn-lg float-end">ACCEPTAR</button>
                         </div>

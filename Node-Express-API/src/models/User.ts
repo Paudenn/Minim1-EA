@@ -1,6 +1,15 @@
+import mongoose from 'mongoose';
 import {Schema, model} from 'mongoose';
 
-const UserSchema = new Schema({
+export interface User
+{
+    id: String;
+    name: String;
+    age: String;
+    password: String;
+    creationDate: Date;
+}
+const UserSchema = new Schema ({
     id: {type:String, required:true},
     name: {type: String, required:true},
     age: {type: String, required:true},
@@ -8,3 +17,4 @@ const UserSchema = new Schema({
     creationDate: {type: Date, default:Date.now}
 })
 export default model('User', UserSchema);
+export const UserModel = mongoose.model("User", UserSchema);

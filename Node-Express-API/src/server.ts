@@ -8,6 +8,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import postsRoutes from './routes/usersRoutes';
 import bookRoutes from './routes/bookRoutes';
+import reportRoutes from './routes/reportRoutes';
 
 class Server {
     public app: express.Application;
@@ -41,6 +42,7 @@ class Server {
         this.app.use(indexRoutes);
         this.app.use('/minim1/users', postsRoutes); // aqui se añaden end points
         this.app.use('/minim1/books', bookRoutes);
+        this.app.use('/minim1/reports',reportRoutes);
     }
 
     start() {

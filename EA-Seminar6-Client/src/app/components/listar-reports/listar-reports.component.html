@@ -1,0 +1,42 @@
+<div class="container mt-5">
+   <div class="row">
+       <div class="col-lg-8 offset-lg-2">
+           <div class="card">
+               <div class="card-body text-center">
+                   <span class="title">LLISTAT DE REPORTS</span>
+                   <button class="btn btn-success float-end" routerLink="/crear-report">NOU REPORT</button>
+                   <table *ngIf="listReports.length > 0" class="table table-striped mt-3">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">reportType</th>
+                        <th scope="col">CreationDate</th>
+                        <th scope="col">Solved</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let report of listReports">
+                        <td>{{ report._id }}</td>
+                        <td>{{ report.user }}</td>
+                        <td>{{ report.title }}</td>
+                        <td>{{ report.description }}</td>
+                        <td>{{ report.typeReport }}</td>
+                        <td>{{ report.creationDate}}</td>
+                        <td>{{ report.solved }}</td>
+                        <td>
+                            <i [routerLink]="['/editar-report', report._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                            <i (click)="deleteReport(report.title)" class="fa-solid fa-trash text-danger"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 style="text-align: start; margin-top: 10px;" *ngIf="listReports.length == 0">No hi ha reports a la base de dades</h5>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
